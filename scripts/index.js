@@ -3,17 +3,18 @@ import { utils } from "./LIB/utils/index";
 import { UI } from "./LIB/system/index";
 import { database } from "./LIB/database/index";
 import { font } from "./LIB/utils/font";
+import { system } from "./LIB/system/index";
 
 events.playerChat((sender, message) => {
 }, false, "[SENDER] >> [MESSAGE]");
 
 events.attack((attacker, target) => {
-    utils.broadcast(attacker.name)
+    system.broadcast(attacker.name)
     UI.sendActionbar("Hello", attacker)
 })
 
-events.itemUse("minecraft:stick", (player) => {
-    utils.broadcast("Stick used by " + player.name);
+events.itemUse("minecraft:stick", (player) => { 
+    system.broadcast("Stick used by " + player.name);
 
     const playerMoney = database.get(player, 'money');
 
@@ -45,3 +46,7 @@ events.itemUse("minecraft:stick", (player) => {
     form.display(player);
 })
 
+
+system.Update(() => {
+    system.broadcast("Hello")
+})
