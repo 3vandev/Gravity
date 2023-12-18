@@ -6,6 +6,7 @@ You are allowed to fork this project and make your own versions of it check out 
 ### Main Features
 **Event System**
 Gravity Wrappers event system is very clean it helps keep your code look nice and tidy here is a comparison
+
 **Gravity Wrapper**
 ```js
 events.attack((attacker, target) => {
