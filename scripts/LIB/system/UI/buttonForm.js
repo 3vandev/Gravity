@@ -22,14 +22,14 @@ export class ButtonForm {
         this.form.body(description);
     }
     
-    addButton(text, tooltip = undefined, click = (player) => {}, image = undefined) {
-        this.buttons.push({text: text, tooltip: tooltip, image: image, click: click})
+    addButton(text, click = (player) => {}, image = '') {
+        this.buttons.push({text: text, image: image, click: click})
     }
 
     display(player) {
         for(const button of this.buttons) {
             let buttonText = button.text;
-            if(button.tooltip) buttonText = `${buttonText}\n${button.tooltip}`
+
             this.form.button(button.text);
         }
 
